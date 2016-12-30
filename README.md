@@ -24,57 +24,56 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
 ## Usage
 
-  1. Get key value
+1. Get key value
 
-    ```elixir
-    child_a = JsonEx.get(%{
-      a: 1,
-      child: %{
-        a: 1,
-        b: 2
-      }
-    }, "child.a") # result: 1
-    ```
+```elixir
+child_a = JsonEx.get(%{
+  a: 1,
+  child: %{
+    a: 1,
+    b: 2
+  }
+}, "child.a") # result: 1
+```
     
-  2. Set key value
+2. Set key value
   
-    ```elixir
-    new_map = JsonEx.set(%{
-      a: 1,
-      child: %{
-        a: 1,
-        b: 2
-      }
-    }, "child.a", 3)
+```elixir
+new_map = JsonEx.set(%{
+  a: 1,
+  child: %{
+    a: 1,
+    b: 2
+  }
+}, "child.a", 3)
 
-    child_a = JsonEx.get(new_map, "child.a") # result: 3
-    ```
+child_a = JsonEx.get(new_map, "child.a") # result: 3
+```
   
-  3. Delete key
+3. Delete key
   
-    ```elixir
-    a = JsonEx.delete(%{
-      a: 1,
-      child: %{
-        a: 1,
-        b: 2
-      }
-    }, "child.a")
+```elixir
+a = JsonEx.delete(%{
+  a: 1,
+  child: %{
+    a: 1,
+    b: 2
+  }
+}, "child.a")
 
-    child_a = JsonEx.get(@map_with_string_keys, "child.a") # result: nil
-    ```
+child_a = JsonEx.get(@map_with_string_keys, "child.a") # result: nil
+```
   
-  4. Convert stringy map to atomic map
+4. Convert stringy map to atomic map
   
-    ```elixir
-    new_map = JsonEx.to_atomic_map(%{
-      "a": 1,
-      "child": %{
-        a: 1,
-        b: 2
-      }
-    })
+```elixir
+new_map = JsonEx.to_atomic_map(%{
+  "a": 1,
+  "child": %{
+    a: 1,
+    b: 2
+  }
+})
 
-    a = new_map[:a] # result: 1
-    ```
-   
+a = new_map[:a] # result: 1
+```
