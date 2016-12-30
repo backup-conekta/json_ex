@@ -24,7 +24,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
 ## Usage
 
-1. Get key value
+### Get key value
 
 ```elixir
 child_a = JsonEx.get(%{
@@ -36,7 +36,7 @@ child_a = JsonEx.get(%{
 }, "child.a") # result: 1
 ```
     
-2. Set key value
+### Set key value
   
 ```elixir
 new_map = JsonEx.set(%{
@@ -50,7 +50,7 @@ new_map = JsonEx.set(%{
 child_a = JsonEx.get(new_map, "child.a") # result: 3
 ```
   
-3. Delete key
+### Delete key
   
 ```elixir
 a = JsonEx.delete(%{
@@ -64,7 +64,7 @@ a = JsonEx.delete(%{
 child_a = JsonEx.get(@map_with_string_keys, "child.a") # result: nil
 ```
   
-4. Convert stringy map to atomic map
+### Convert stringy map to atomic map
   
 ```elixir
 new_map = JsonEx.to_atomic_map(%{
