@@ -16,7 +16,7 @@ defmodule JsonEx.Mixfile do
 
   defp deps do
     [
-      {:poison, github: "devinus/poison", override: true},
+      {:poison, "~> 2.2 or ~> 3.0 or ~> 4.0"},
       {:atomic_map, "~> 0.8"}
     ]
   end
