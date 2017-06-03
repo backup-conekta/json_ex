@@ -1,5 +1,6 @@
 defmodule JsonEx do
   alias AtomicMap
+  alias Poison
 
   def get(data, path) do
     data = to_atomic_map(data)
@@ -9,10 +10,9 @@ defmodule JsonEx do
   def set(data, path, value) do
     data = to_atomic_map(data)
 
-    if !is_nil(value) do
-      data = update_in data, path_to_atoms(path), fn(v) -> value end
+    case !is_nil(value) do
+      true -> update_in data, path_to_atoms(path), fn(_v) -> value end
     end
-    data
   end
 
   def delete(data, path) do
@@ -21,6 +21,10 @@ defmodule JsonEx do
     {_, data} = pop_in data, path_to_atoms(path)
     
     data
+  end
+
+  def to_string(data) do
+    Poison.encode!(data)
   end
 
   def to_atomic_map(data) do

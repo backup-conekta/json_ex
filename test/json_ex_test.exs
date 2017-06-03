@@ -67,4 +67,14 @@ defmodule JsonExTest do
     new_map = JsonEx.to_atomic_map(@map_with_atom_keys)
     assert new_map[:a] == 1
   end
+
+  test "atomic map to string" do
+    json_string = JsonEx.to_string(@map_with_atom_keys)
+    assert json_string == "{\"child\":{\"b\":2,\"a\":1},\"a\":1}"
+  end
+
+  test "string map to string" do
+    json_string = JsonEx.to_string(@map_with_atom_keys)
+    assert json_string == "{\"child\":{\"b\":2,\"a\":1},\"a\":1}"
+  end
 end

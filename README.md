@@ -77,3 +77,27 @@ new_map = JsonEx.to_atomic_map(%{
 
 a = new_map[:a] # result: 1
 ```
+
+### Convert stringy map to json string
+  
+```elixir
+json_string = JsonEx.to_string(%{
+  "a": 1,
+  "child": %{
+    "a": 1,
+    "b": 2
+  }
+})
+```
+
+### Convert atomic map to json string
+  
+```elixir
+json_string = JsonEx.to_string(%{
+  a: 1,
+  child: %{
+    a: 1,
+    b: 2
+  }
+})
+```
